@@ -61,25 +61,14 @@ namespace ThaLastOneAbsence
         public void ShowDT(string a)
         {
             c.connecter();
-            c.cmd.CommandText = "SELECT StudentId,Fullname,Email  from Student  where FormateurId= " + a ;
+            c.cmd.CommandText = "SELECT StudentId,Fullname,Email  from Student  where FormateurId= " + a;
             c.cmd.Connection = c.con;
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
             dg.ItemsSource = c.dt.DefaultView;
             c.dr.Close();
 
-            /*  var name = c.dt.Rows[0][0].ToString();
-              MessageBox.Show(name);*/
 
-            /* if (c.dr.HasRows)
-             {
-                  c.dr.Read();
-                 int StudentId = c.dr.GetInt32(0);
-                 MessageBox.Show(StudentId.ToString());
-                 // Call Close when done reading.
-                 c.dr.Close();
-
-             }*/
 
 
 
@@ -92,9 +81,29 @@ namespace ThaLastOneAbsence
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            string St_ID = "";
-            string StudentName = "";
-            ;
+            c.connecter();
+            c.cmd.CommandText = "SELECT (SELECT COUNT(date) FROM   Absence WHERE  valPresence = 1 and date = '" + date + "' ) , (SELECT COUNT(date) FROM   Absence WHERE  valAbsence = 1 and date = '" + date + "' ) , (SELECT COUNT(date) FROM   Absence WHERE  valRetard = 1 and date = '" + date + "' )  ";
+            c.cmd.Connection = c.con;
+            c.dr = c.cmd.ExecuteReader();
+
+            dg.ItemsSource = c.dt.DefaultView;
+
+
+            while (c.dr.Read())
+            {
+                lab1.Content = c.dr[0];
+                lab2.Content = c.dr[1];
+                lab3.Content = c.dr[2];
+
+
+
+            }
+            c.dr.Close();
+
+        }
+
+        public void Attendance()
+        {
         }
         int id;
         /* private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -249,6 +258,28 @@ namespace ThaLastOneAbsence
         private void dg_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+            try
+            {
+                var text = textboxSearch.Text.Trim().ToLower();
+                var row1 = c.dt.AsEnumerable()
+                                .Where(row =>
+                                     string.IsNullOrEmpty(text)
+                                     ? true
+                                     : row["Fullname"].ToString().ToLower().Contains(text) ?
+                                     true
+                                     : row["Email"].ToString().ToLower().Contains(text)
+                                         ).CopyToDataTable();
+                dg.ItemsSource = row1.DefaultView;
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

@@ -6,33 +6,68 @@
         xmlns:local="clr-namespace:ThaLastOneAbsence"
         mc:Ignorable="d"
         Title="MainWindow" Height="700" Width="1024" WindowStyle="ToolWindow">
-    <Border BorderBrush="White" CornerRadius="3
-            " BorderThickness="1" HorizontalAlignment="Left" Height="517" Margin="342,73,0,0" VerticalAlignment="Top" Width="343" Background="White">
-        <Grid HorizontalAlignment="Left" Height="76" Margin="25.2,46.2,0,0" VerticalAlignment="Top" Width="293">
-            <Grid HorizontalAlignment="Left" Height="260" Margin="-1,74,-9,-258" VerticalAlignment="Top" Width="303">
-                <TextBox x:Name="inp_mail" HorizontalAlignment="Left" Height="38" Margin="43,18,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Width="250" Padding="10,12,0,0" FontFamily="Arial" FontSize="16" BorderBrush="White" Foreground="#FF7F7F7F"/>
-                <Border BorderBrush="#FFAB00FF" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="10,60,0,0" VerticalAlignment="Top" Width="273"/>
-                <TextBox x:Name="passBox" HorizontalAlignment="Left" Margin="43,84,0,137" TextWrapping="Wrap" Text="Password" Width="250" Padding="10,12,0,0" FontFamily="Arial" FontSize="16" BorderBrush="White" Foreground="#FF7F7F7F"/>
-                <Border BorderBrush="#FFAB00FF" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="10,128,0,0" VerticalAlignment="Top" Width="273"/>
+    <Window.BorderBrush>
+        <ImageBrush/>
+    </Window.BorderBrush>
+    <Window.Background>
+        <ImageBrush ImageSource="t.png"/>
+    </Window.Background>
 
-                
-                
-                <ComboBox x:Name="role" Background="red" HorizontalAlignment="Left" Margin="0,167,0,0" VerticalAlignment="Top" Width="303" Height="24">
-                    <ComboBoxItem Content="Admin" Background="#FFF7F7F7" FontSize="16"/>
-                    <ComboBoxItem Content="Formateur" Background="#FFF7F7F7" FontSize="16"/>
-                    <ComboBoxItem Content="Secretaire" Background="#FFF7F7F7" FontSize="16"/>
-                    <ComboBoxItem Content="Apprenant" Background="#FFF7F7F7" FontSize="16"/>
+    <Border BorderBrush="#FFF0F0F0" CornerRadius="5
+            " BorderThickness="1" HorizontalAlignment="Left" Height="479" Margin="524,97,0,0" VerticalAlignment="Top" Width="343" Background="White">
+        <Grid HorizontalAlignment="Left" Height="79" Margin="25.2,9.2,0,0" VerticalAlignment="Top" Width="293">
+            <Grid HorizontalAlignment="Left" Height="260" Margin="-1,76,-9,-260" VerticalAlignment="Top" Width="303">
+                <TextBox x:Name="inp_mail" HorizontalAlignment="Left" Height="28" Margin="43,28,0,0" BorderThickness="0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" Padding="10,11,0,0" FontFamily="Arial" BorderBrush="White"  Foreground="#FF979292" SelectionOpacity="1" FontSize="14">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                            <Style.Resources>
+                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                    <VisualBrush.Visual>
+                                        <Label Content="Email" Foreground="#FF6F6F6F" BorderBrush="White" FontSize="16" Margin="0" Padding="10,13,50,5" />
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Style.Resources>
+                            <Style.Triggers>
+                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="Text" Value="{x:Null}">
+                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                    <Setter Property="Background" Value="White" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+                <Border BorderBrush="#0177fb" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="10,60,0,0" VerticalAlignment="Top" Width="273" Opacity="0.2"/>
+
+                <PasswordBox x:Name="passBox"  MaxLength="16" BorderThickness="0" HorizontalAlignment="Left" PasswordChar="•" Height="5" Margin="44,-40,0,0" VerticalAlignment="Stretch" Width="239" BorderBrush="White" Background="{x:Null}"/>
+
+                <Border BorderBrush="#0177fb" BorderThickness="1" HorizontalAlignment="Left" Height="1" Margin="10,128,0,0" VerticalAlignment="Top" Width="273" Opacity="0.2"/>
+                <ComboBox x:Name="role" HorizontalAlignment="Left" Height="43" Margin="10,161,0,0" VerticalAlignment="Top" Width="275" BorderBrush="#0177fb" IsSynchronizedWithCurrentItem="False" Foreground="Black" OpacityMask="White" ScrollViewer.CanContentScroll="True" Background="White" Opacity="0.2">
+                    <ComboBoxItem Content="Admin" Background="white" FontSize="16"/>
+                    <ComboBoxItem Content="Formateur" Background="white" FontSize="16"/>
+                    <ComboBoxItem Content="Secretaire" Background="white" FontSize="16"/>
+                    <ComboBoxItem Content="Apprenant" Background="white" FontSize="16"/>
                 </ComboBox>
+                <Image HorizontalAlignment="Left" Height="22" Margin="14,35,0,0" VerticalAlignment="Top" Width="30" Source="message.png" Opacity="0.5"/>
+                <Image HorizontalAlignment="Left" Height="22" Margin="14,102,0,0" VerticalAlignment="Top" Width="32" Source="padlock_9.png" Opacity="0.5"/>
+
             </Grid>
-            <Label Content="Login" HorizontalAlignment="Left" Height="35" Margin="115,16,0,0" VerticalAlignment="Top" Width="92" RenderTransformOrigin="0.976,1.198" FontFamily="Arial" FontSize="22" FontWeight="Bold"/>
-            <Label Content="Forget your password?" HorizontalAlignment="Left" Height="24" Margin="90,300,0,-248" VerticalAlignment="Top" Width="132" Foreground="#FFA3A3A3" FontFamily="Arial"/>
-            <Button x:Name="btn_cn" Content="LOGIN" HorizontalAlignment="Left" Height="49"   Margin="-1,366,0,-339"  VerticalAlignment="Top" Width="294" Background="#FF6672FB" Click="btn_cn_Click" FontFamily="Arial" FontSize="20" Foreground="White" BorderBrush="White">
+            <Label Content="Login" HorizontalAlignment="Left" Height="35" Margin="107,34,0,0" VerticalAlignment="Top" Width="73" RenderTransformOrigin="0.976,1.198" FontFamily="Arial" FontSize="18" FontWeight="Bold" BorderBrush="White"/>
+            <Button Content="Forget your password?" Margin="8,283,9,-240" BorderBrush="White" Background="White" Foreground="#FF868484" />
+            <Button x:Name="btn_cn" Content="LOGIN" HorizontalAlignment="Left" Height="49"   Margin="-1,351,0,-321"  VerticalAlignment="Top" Width="294" Background="#FF0177FB" Click="btn_cn_Click" FontFamily="Arial" FontSize="20" Foreground="White" BorderBrush="#FF0177FB">
                 <Button.Resources>
                     <Style TargetType="{x:Type Border}">
                         <Setter Property="CornerRadius" Value="4"/>
                     </Style>
                 </Button.Resources>
             </Button>
+            <Image HorizontalAlignment="Left" Height="79" Margin="-378,125,0,-125" VerticalAlignment="Top" Width="100"/>
+            <Image HorizontalAlignment="Left" Height="211" Margin="-421,125,0,-257" VerticalAlignment="Top" Width="251"/>
+            <Image HorizontalAlignment="Left" Height="339" Margin="-529,89,0,-349" VerticalAlignment="Top" Width="457" Source="Sans_titre_-_1.png"/>
         </Grid>
     </Border>
 

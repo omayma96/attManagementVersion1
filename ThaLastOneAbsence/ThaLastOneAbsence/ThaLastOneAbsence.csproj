@@ -127,5 +127,53 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Sans_titre_-_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="padlock_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="home-icon-silhouette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="notes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="cover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="t.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="avatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="woman_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="graduation-hat_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="unknown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

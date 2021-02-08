@@ -14,6 +14,8 @@ namespace ThaLastOneAbsence
         public SqlCommand cmd = new SqlCommand();
         public SqlDataReader dr;
         public DataTable dt = new DataTable();
+        public DataTable dmt = new DataTable();
+        public DataTable dat = new DataTable();
 
 
         public void connecter()

@@ -33,16 +33,6 @@ namespace ThaLastOneAbsence
        Connect d = new Connect();
 
 
-        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void butDashboard_MouseDoubleClick(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void butFormateur_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
 
@@ -51,13 +41,16 @@ namespace ThaLastOneAbsence
                 d.dt.Clear();
             }
 
-
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            DataGridApprennentJEE.Visibility = Visibility.Hidden;
+            DataGridApprennentFEBE.Visibility = Visibility.Hidden;
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
             DataGrid.Visibility = Visibility.Visible;
             butAjouter.Visibility = Visibility.Visible;
             txtFullname.Visibility = Visibility.Hidden;
             txtEmail.Visibility = Visibility.Hidden;
             txtPassword.Visibility = Visibility.Hidden;
-            txtDateNaissance.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
             txtClasse.Visibility = Visibility.Hidden;
             txtFormateur.Visibility = Visibility.Hidden;
             txtRoleld.Visibility = Visibility.Hidden;
@@ -65,16 +58,35 @@ namespace ThaLastOneAbsence
             lblEmail.Visibility = Visibility.Hidden;
             lblPassword.Visibility = Visibility.Hidden;
             lblRoleId.Visibility = Visibility.Hidden;
-            lblDateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
             txtAnnée.Visibility = Visibility.Hidden;
             lblAnnée.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
             lblClasse.Visibility = Visibility.Hidden;
             lblFourmateur.Visibility = Visibility.Hidden;
+            lblFormateurId.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
             butEnregister.Visibility = Visibility.Hidden;
             butSupprimer.Visibility = Visibility.Visible;
             butModifier.Visibility = Visibility.Visible;
             butEnregistetModefication.Visibility = Visibility.Hidden;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Hidden;
+            EnregistrerModificationSecretaire.Visibility = Visibility.Hidden;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            AjouterStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+
 
             d.connecter();
             d.cmd.CommandText = "SELECT f.FormateurId, f.Fullname,f.Email,f.Année,c.Classename from  Formateur f  INNER JOIN Classe c   ON f.ClassId = c.ClasseId";
@@ -88,23 +100,14 @@ namespace ThaLastOneAbsence
 
         }
 
-        private void butSecrétaire_MouseDoubleClick(object sender, RoutedEventArgs e)
-        {
-            /*DataGrid.Visibility = Visibility.Visible;
-            d.CONNECTER();
-            d.cmd.CommandText = ("select * from Secretaire");
-            d.cmd.Connection = d.con;
-            d.dr = d.cmd.ExecuteReader();
-            d.dt.Load(d.dr);
-            DataGrid.ItemsSource = d.dt.DefaultView;
-            d.dr.Close();*/
 
-        }
 
 
 
         private void butAjouter_Click(object sender, RoutedEventArgs e)
         {
+
+
             DataGrid.Visibility = Visibility.Hidden;
             txtFullname.Visibility = Visibility.Visible;
             txtEmail.Visibility = Visibility.Visible;
@@ -123,27 +126,14 @@ namespace ThaLastOneAbsence
             butVider.Visibility = Visibility.Visible;
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            butAjouter.Visibility = Visibility.Hidden;
 
 
         }
 
-
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
-        {
-
-        }
-        // Remplir de datagid
-
-        /*  public void RemplirGrid()
-          {
-              d.cmd.CommandText = "select * form Formateur";
-              d.cmd.Connection = d.con;
-              d.dr = d.cmd.ExecuteReader();
-              d.dt.Load(d.dr);
-              DataGrid.ItemsSource = d.dt.DefaultView;
-              d.dr.Close();
-          }*/
 
         private void butEnregister_Click(object sender, RoutedEventArgs e)
         {
@@ -156,13 +146,18 @@ namespace ThaLastOneAbsence
 
         private void butVider_Click(object sender, RoutedEventArgs e)
         {
-
+            txtFullname.Clear();
+            txtEmail.Clear();
+            txtPassword.Clear();
+            txtAnnée.Clear();
+            txtRoleld.Text = "";
+            txtClasse.Text = "";
+            txtImage.Text = "";
+            txFormateurId.Text = "";
+            txtdateNaissance.Text = "";
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
         private void loadData(object sender, RoutedEventArgs e)
         {
@@ -222,7 +217,16 @@ namespace ThaLastOneAbsence
 
         private void butEnregistetModefication_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = DataGrid.SelectedItem as DataRowView;
+            var id = row.Row[0].ToString();
 
+            d.connecter();
+            d.cmd.CommandText = "update Formateur set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',Année =" + txtAnnée.Text + ",RoleId =" + txtRoleld.SelectedItem + ",ClassId ='" + txtClasse.SelectedItem + "' WHERE FormateurId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dt.Load(d.dr);
+            DataGrid.ItemsSource = d.dt.DefaultView;
+            d.dr.Close();
         }
 
         private void butModifier_Click(object sender, RoutedEventArgs e)
@@ -245,95 +249,432 @@ namespace ThaLastOneAbsence
             butAjouter.Visibility = Visibility.Hidden;
             butSupprimer.Visibility = Visibility.Hidden;
 
+        }
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        // ****************************************************** Secrétaire ********************************************************************
+
+
+        private void butSecrétaire_MouseDoubleClick(object sender, RoutedEventArgs e)
+        {
+
+
+            if (d.dmt != null)
+            {
+                d.dmt.Clear();
+            }
+
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            DataGridApprennentJEE.Visibility = Visibility.Hidden;
+            DataGridApprennentFEBE.Visibility = Visibility.Hidden;
+            DataGrid.Visibility = Visibility.Hidden;
+            DataGridSecrétaire.Visibility = Visibility.Visible;
+            AjouterSecretaire.Visibility = Visibility.Visible;
+            txtFullname.Visibility = Visibility.Hidden;
+            txtEmail.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Hidden;
+            txtClasse.Visibility = Visibility.Hidden;
+            txtRoleld.Visibility = Visibility.Hidden;
+            lblFullname.Visibility = Visibility.Hidden;
+            lblEmail.Visibility = Visibility.Hidden;
+            lblPassword.Visibility = Visibility.Hidden;
+            lblRoleId.Visibility = Visibility.Hidden;
+            lblClasse.Visibility = Visibility.Hidden;
+            txtAnnée.Visibility = Visibility.Hidden;
+            lblAnnée.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
+            lblFormateurId.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
+            butEnregister.Visibility = Visibility.Hidden;
+            butAjouter.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            butEnregistetModefication.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Visible;
+            EnregistrerModificationSecretaire.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            AjouterStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Hidden;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            EnregistrerModificationStudent.Visibility = Visibility.Hidden;
 
 
 
-            /*d.CONNECTER();
-            DataRowView row = DataGrid.SelectedItem as DataRowView;
+
+
+
+            d.connecter();
+            d.cmd.CommandText = "SELECT s.SecretaireId, s.Fullname,s.Email from  Secretaire s  ";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dmt.Load(d.dr);
+            DataGridSecrétaire.ItemsSource = d.dmt.DefaultView;
+
+        }
+
+        private void AjouterSecretaire_Click(object sender, RoutedEventArgs e)
+        {
+
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Visible;
+            txtEmail.Visibility = Visibility.Visible;
+            txtPassword.Visibility = Visibility.Visible;
+            txtRoleld.Visibility = Visibility.Visible;
+            lblFullname.Visibility = Visibility.Visible;
+            lblEmail.Visibility = Visibility.Visible;
+            lblPassword.Visibility = Visibility.Visible;
+            lblRoleId.Visibility = Visibility.Visible;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Visible;
+            lblImage.Visibility = Visibility.Visible;
+            EnregistrerSecretaire.Visibility = Visibility.Visible;
+            butVider.Visibility = Visibility.Visible;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Hidden;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+
+
+        }
+        private void EnregistrerSecretaire_Click(object sender, RoutedEventArgs e)
+        {
+            d.connecter();
+            d.cmd = new SqlCommand(" insert into Secretaire  (Fullname,email,password,image,RoleId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "','" + txtImage.Text + "'," + txtRoleld.SelectedItem + ")", d.con);
+            d.cmd.Connection = d.con;
+            d.cmd.ExecuteNonQuery();
+            d.con.Close();
+
+        }
+        private void ModifirerSecretaire_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Visible;
+            txtEmail.Visibility = Visibility.Visible;
+            txtPassword.Visibility = Visibility.Visible;
+            txtRoleld.Visibility = Visibility.Visible;
+            lblFullname.Visibility = Visibility.Visible;
+            lblEmail.Visibility = Visibility.Visible;
+            lblPassword.Visibility = Visibility.Visible;
+            lblRoleId.Visibility = Visibility.Visible;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Visible;
+            lblImage.Visibility = Visibility.Visible;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Visible;
+            EnregistrerModificationSecretaire.Visibility = Visibility.Visible;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+
+
+            /*butEnregistetModefication.Visibility = Visibility.Visible;
+            butAjouter.Visibility = Visibility.Hidden;
+            butSupprimer.Visibility = Visibility.Hidden;*/
+
+        }
+        private void EnregistrerModificationSecretaire_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView gow = DataGridSecrétaire.SelectedItem as DataRowView;
+            var id = gow.Row[0].ToString();
+
+            d.connecter();
+            d.cmd.CommandText = "update Secretaire set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',image ='" + txtImage.Text + "',RoleId =" + txtRoleld.SelectedItem + " WHERE SecretaireId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dmt.Load(d.dr);
+            DataGridSecrétaire.ItemsSource = d.dmt.DefaultView;
+            d.dr.Close();
+
+        }
+        private void SupprimerSecretaire_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView row = DataGridSecrétaire.SelectedItem as DataRowView;
             var id = row.Row[0].ToString();
-*/
-            /*this.txtFullname.Text = d.dt.Rows[DataRow][1].ToString();*/
-            /* txtFullname.Text = row.Cells[];
-  */
-        }
 
-        private void butApprenants_MouseDoubleClick(object sender, RoutedEventArgs e)
+            d.connecter();
+            d.cmd.CommandText = "DELETE FROM Secretaire WHERE SecretaireId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dmt.Load(d.dr);
+            DataGridSecrétaire.ItemsSource = d.dmt.DefaultView;
+            d.dr.Close();
+        }
+        //********************************************************* Apprennent csharp ****************************************************************************
+
+
+        private void csharp_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+            if (d.dat != null)
+            {
+                d.dat.Clear();
+            }
+            DataGrid.Visibility = Visibility.Hidden;
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Hidden;
+            txtEmail.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Hidden;
+            txtRoleld.Visibility = Visibility.Hidden;
+            lblFullname.Visibility = Visibility.Hidden;
+            lblEmail.Visibility = Visibility.Hidden;
+            lblPassword.Visibility = Visibility.Hidden;
+            lblRoleId.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            lblFormateurId.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Hidden;
+            DataGridApprennent.Visibility = Visibility.Visible;
+            AjouterStudent.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Visible;
+            EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Visible;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+
+            d.connecter();
+            d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 1 ";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennent.ItemsSource = d.dat.DefaultView;
 
         }
-
-        private void txtClasse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void AjouterStudent_Click_1(object sender, RoutedEventArgs e)
         {
-
+            DataGridApprennentJEE.Visibility = Visibility.Hidden;
+            DataGridApprennentFEBE.Visibility = Visibility.Hidden;
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Visible;
+            txtEmail.Visibility = Visibility.Visible;
+            txtPassword.Visibility = Visibility.Visible;
+            txtRoleld.Visibility = Visibility.Visible;
+            lblFullname.Visibility = Visibility.Visible;
+            lblEmail.Visibility = Visibility.Visible;
+            lblPassword.Visibility = Visibility.Visible;
+            lblRoleId.Visibility = Visibility.Visible;
+            txtImage.Visibility = Visibility.Visible;
+            lblImage.Visibility = Visibility.Visible;
+            txtdateNaissance.Visibility = Visibility.Visible;
+            lbldateNaissance.Visibility = Visibility.Visible;
+            txtClasse.Visibility = Visibility.Visible;
+            lblClasse.Visibility = Visibility.Visible;
+            lblFormateurId.Visibility = Visibility.Visible;
+            txFormateurId.Visibility = Visibility.Visible;
+            butVider.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Visible;
+            AjouterStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Hidden;
 
         }
 
-
-        private void txtFullname_TextChanged(object sender, TextChangedEventArgs e)
+        private void EnregistrerStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            d.connecter();
+            d.cmd = new SqlCommand(" insert into Student  (Fullname,email,password,dateNaissance,image,RoleId,FormateurId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "','" + txtdateNaissance.Text + "','" + txtImage.Text + "'," + txtRoleld.SelectedItem + "," + txFormateurId.SelectedItem + ")", d.con);
+            d.cmd.Connection = d.con;
+            d.cmd.ExecuteNonQuery();
+            d.con.Close();
         }
-
-        private void lblRoleld_TextChanged(object sender, TextChangedEventArgs e)
+        private void loadeDataGridApprennent(object sender, RoutedEventArgs e)
         {
+            d.connecter();
+            d.cmd.Connection = d.con;
+            d.cmd = new SqlCommand("select [FormateurId] from Formateur", d.con);
+            SqlDataReader dr = d.cmd.ExecuteReader();
+
+
+            while (dr.Read())
+            {
+
+                txFormateurId.Items.Add(dr["FormateurId"].ToString());
+
+            }
+            d.con.Close();
 
         }
 
-        private void txtClasse_TextChanged(object sender, TextChangedEventArgs e)
+        private void ModifirerStudent_Click(object sender, RoutedEventArgs e)
         {
-
+            DataGridApprennentJEE.Visibility = Visibility.Hidden;
+            DataGridApprennentFEBE.Visibility = Visibility.Hidden;
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Visible;
+            txtEmail.Visibility = Visibility.Visible;
+            txtPassword.Visibility = Visibility.Visible;
+            txtRoleld.Visibility = Visibility.Visible;
+            lblFullname.Visibility = Visibility.Visible;
+            lblEmail.Visibility = Visibility.Visible;
+            lblPassword.Visibility = Visibility.Visible;
+            lblRoleId.Visibility = Visibility.Visible;
+            txtImage.Visibility = Visibility.Visible;
+            lblImage.Visibility = Visibility.Visible;
+            txtdateNaissance.Visibility = Visibility.Visible;
+            lbldateNaissance.Visibility = Visibility.Visible;
+            txtClasse.Visibility = Visibility.Visible;
+            lblClasse.Visibility = Visibility.Visible;
+            lblFormateurId.Visibility = Visibility.Visible;
+            txFormateurId.Visibility = Visibility.Visible;
+            butVider.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            AjouterStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Hidden;
+            EnregistrerModificationStudent.Visibility = Visibility.Visible;
+            SupprimerStudent.Visibility = Visibility.Hidden;
         }
-
-        private void txtRoleld_TextChanged(object sender, TextChangedEventArgs e)
+        private void EnregistrerModificationStudent_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView gow = DataGridApprennent.SelectedItem as DataRowView;
+            var id = gow.Row[0].ToString();
 
+            d.connecter();
+            d.cmd.CommandText = "update Student set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',dateNaissance ='" + txtdateNaissance.Text + "',image ='" + txtImage.Text + "',RoleId =" + txtRoleld.SelectedItem + ",FormateurId =" + txFormateurId.SelectedItem + " WHERE StudentId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennent.ItemsSource = d.dat.DefaultView;
+            d.dr.Close();
         }
-
-        private void txtPassword_TextChanged(object sender, TextChangedEventArgs e)
+        private void SupprimerStudent_Click(object sender, RoutedEventArgs e)
         {
+            DataRowView row = DataGridApprennent.SelectedItem as DataRowView;
+            var id = row.Row[0].ToString();
+
+            d.connecter();
+            d.cmd.CommandText = "DELETE FROM Student WHERE StudentId = '" + id + "'";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennent.ItemsSource = d.dat.DefaultView;
+            d.dr.Close();
 
         }
 
-        private void txtEmail_TextChanged(object sender, TextChangedEventArgs e)
+
+        //********************************************************* Apprennent JEE ****************************************************************************
+
+        private void JEE_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+            if (d.dat != null)
+            {
+                d.dat.Clear();
+            }
+            DataGridApprennentJEE.Visibility = Visibility.Visible;
+            DataGridApprennentFEBE.Visibility = Visibility.Hidden;
+            DataGrid.Visibility = Visibility.Hidden;
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Hidden;
+            txtEmail.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Hidden;
+            txtRoleld.Visibility = Visibility.Hidden;
+            lblFullname.Visibility = Visibility.Hidden;
+            lblEmail.Visibility = Visibility.Hidden;
+            lblPassword.Visibility = Visibility.Hidden;
+            lblRoleId.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            lblFormateurId.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Hidden;
+            AjouterStudent.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Visible;
+            EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Visible;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+
+            d.connecter();
+            d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 2 ";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennentJEE.ItemsSource = d.dat.DefaultView;
 
         }
+        //********************************************************* Apprennent FEBE ****************************************************************************
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void FEBE_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
+            if (d.dat != null)
+            {
+                d.dat.Clear();
+            }
+            DataGridApprennentFEBE.Visibility = Visibility.Visible;
+            DataGridApprennentJEE.Visibility = Visibility.Hidden;
+            DataGrid.Visibility = Visibility.Hidden;
+            DataGridSecrétaire.Visibility = Visibility.Hidden;
+            DataGridApprennent.Visibility = Visibility.Hidden;
+            txtFullname.Visibility = Visibility.Hidden;
+            txtEmail.Visibility = Visibility.Hidden;
+            txtPassword.Visibility = Visibility.Hidden;
+            txtRoleld.Visibility = Visibility.Hidden;
+            lblFullname.Visibility = Visibility.Hidden;
+            lblEmail.Visibility = Visibility.Hidden;
+            lblPassword.Visibility = Visibility.Hidden;
+            lblRoleId.Visibility = Visibility.Hidden;
+            txtdateNaissance.Visibility = Visibility.Hidden;
+            lbldateNaissance.Visibility = Visibility.Hidden;
+            butSupprimer.Visibility = Visibility.Hidden;
+            butModifier.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            txtImage.Visibility = Visibility.Hidden;
+            lblImage.Visibility = Visibility.Hidden;
+            lblFormateurId.Visibility = Visibility.Hidden;
+            txFormateurId.Visibility = Visibility.Hidden;
+            EnregistrerSecretaire.Visibility = Visibility.Hidden;
+            butVider.Visibility = Visibility.Hidden;
+            SupprimerSecretaire.Visibility = Visibility.Hidden;
+            ModifirerSecretaire.Visibility = Visibility.Hidden;
+            AjouterStudent.Visibility = Visibility.Visible;
+            EnregistrerStudent.Visibility = Visibility.Hidden;
+            ModifirerStudent.Visibility = Visibility.Visible;
+            EnregistrerModificationStudent.Visibility = Visibility.Hidden;
+            SupprimerStudent.Visibility = Visibility.Visible;
+            AjouterSecretaire.Visibility = Visibility.Hidden;
+
+            d.connecter();
+            d.cmd.CommandText = "SELECT s.StudentId, s.Fullname,s.Email,s.dateNaissance,c.Classename from  Student s  INNER JOIN Classe c   ON s.FormateurId = c.ClasseId where c.ClasseId = 3 ";
+            d.cmd.Connection = d.con;
+            d.dr = d.cmd.ExecuteReader();
+            d.dat.Load(d.dr);
+            DataGridApprennentFEBE.ItemsSource = d.dat.DefaultView;
 
         }
-
-
-
-        private void txtRoleld_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        /*  public void VIDER(Control f)
-          {
-
-              foreach (Control item in Controls) if (item is TextBox) ((TextBox)item).Clear();
-
-              foreach (Control ct in f.Controls)
-              {
-                  if (ct.GetType() == typeof(TextBox))
-                  {
-                      ct.TextInput = "";
-                  }
-
-                  if (ct.Controls.Count == 0) ;
-                  {
-                      VIDER(ct);
-                  }
-
-              }
-          }*/
     }
 }

@@ -40,7 +40,7 @@ namespace ThaLastOneAbsence
             if (role.Text == "Formateur")
             {
                 c.connecter();
-                c.cmd.CommandText = "SELECT * FROM  Formateur WHERE email= '" + inp_mail.Text + "' and password = '" + passBox.Text + "' ";
+                c.cmd.CommandText = "SELECT * FROM  Formateur WHERE email= '" + inp_mail.Text + "' and password = '" + passBox.Password + "' ";
                 c.cmd.Connection = c.con;
                 c.dr = c.cmd.ExecuteReader();
                 while (c.dr.Read())
@@ -57,7 +57,7 @@ namespace ThaLastOneAbsence
             else if (role.Text== "Apprenant")
             {
                 c.connecter();
-                c.cmd.CommandText = "SELECT * FROM  Student WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Text + "' ";
+                c.cmd.CommandText = "SELECT * FROM  Student WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Password + "' ";
                 c.cmd.Connection = c.con;
                 c.dr = c.cmd.ExecuteReader();
                 while (c.dr.Read())
@@ -76,7 +76,7 @@ namespace ThaLastOneAbsence
 
             {
                 c.connecter();
-                c.cmd.CommandText = "SELECT * FROM  Secretaire WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Text + "' ";
+                c.cmd.CommandText = "SELECT * FROM  Secretaire WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Password + "' ";
                 c.cmd.Connection = c.con;
                 c.dr = c.cmd.ExecuteReader();
                 while (c.dr.Read())
@@ -91,7 +91,7 @@ namespace ThaLastOneAbsence
 
             {
                 c.connecter();
-                c.cmd.CommandText = "SELECT * FROM  Admin WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Text + "' ";
+                c.cmd.CommandText = "SELECT * FROM  Admin WHERE Email= '" + inp_mail.Text + "' and password = '" + passBox.Password + "' ";
                 c.cmd.Connection = c.con;
                 c.dr = c.cmd.ExecuteReader();
                 while (c.dr.Read())

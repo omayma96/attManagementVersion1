@@ -7,59 +7,61 @@
         xmlns:local="clr-namespace:ThaLastOneAbsence"
         mc:Ignorable="d"
         Title="Etudiant" Height="700" Width="1024">
-    <Grid>
+    <Grid Background="#FFF9FBFF" Margin="-2,0,1.6,0.4">
+        <Menu HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1014" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1" Grid.ColumnSpan="2">
+            <Image Height="67" Source="cover.png" Width="157"/>
+        </Menu>
+        <hc:SideMenu BorderThickness="1" Margin="1,66,820,3">
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="SelectionChanged">
+                    <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
+            <hc:SideMenuItem Header="Dashboard" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
 
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="603,126,0,0" VerticalAlignment="Top" Width="186" Fill="red" RadiusX="5" RadiusY="5"/>
-        <Label Content="Justifier" HorizontalAlignment="Left" Height="43" Margin="613,127,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
-        <Label x:Name="Total_jus" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="652,168,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold"/>
 
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="389,127,0,0" VerticalAlignment="Top" Width="187" Fill="red" RadiusX="5" RadiusY="5"/>
-        <Label Content="Total" HorizontalAlignment="Left" Height="43" Margin="389,126,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
-        <Label x:Name="Total_abs" Content="" HorizontalAlignment="Left" Height="44" Margin="448,166,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold"/>
+            </hc:SideMenuItem>
 
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="823,126,0,0" VerticalAlignment="Top" Width="187" Fill="red" RadiusX="5" RadiusY="5"/>
-        <Label Content="No Justifier" HorizontalAlignment="Left" Height="43" Margin="829,127,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
-        <Label x:Name="Total_noJust" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="884,168,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold"/>
 
-        <DataGrid AutoGenerateColumns="False" x:Name="deatail_abs" HeadersVisibility="All" RowHeaderWidth="60"  HorizontalAlignment="Left" Height="287" Margin="391,276,0,0" VerticalAlignment="Top" Width="617"  Background="#FFE0E3FE" Foreground="#FF707070" >
+            <hc:SideMenuItem Header="Justification" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
+
+
+            </hc:SideMenuItem>
+            <hc:SideMenuItem Header="Logout" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" FontSize="14" Foreground="#FF707070">
+
+
+            </hc:SideMenuItem>
+           
+            <Button Content="Button" Height="100" Width="75" Background="red"/>
+        </hc:SideMenu>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="519,98,0,0" VerticalAlignment="Top" Width="186" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
+        <Label Content="Justifier" HorizontalAlignment="Left" Height="43" Margin="529,99,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
+        <Label x:Name="Total_jus" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="568,140,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#00c747"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="257,99,0,0" VerticalAlignment="Top" Width="187" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
+        <Label Content="Total" HorizontalAlignment="Left" Height="43" Margin="248,98,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
+        <Label x:Name="Total_abs" Content="" HorizontalAlignment="Left" Height="44" Margin="316,138,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#e4ef00"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="763,98,0,0" VerticalAlignment="Top" Width="187" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
+        <Label Content="No Justifier" HorizontalAlignment="Left" Height="43" Margin="769,99,0,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
+        <Label x:Name="Total_noJust" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="824,140,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#e73a3d"/>
+
+        <DataGrid AutoGenerateColumns="False" x:Name="deatail_abs" HeadersVisibility="All" RowHeaderWidth="60"  HorizontalAlignment="Left" Height="287" Margin="258,220,0,0" VerticalAlignment="Top" Width="698"  Background="white" Foreground="White" FontSize="14" HorizontalGridLinesBrush="White" >
             <DataGrid.Columns>
-                <DataGridTextColumn  Header="Date" Width="100" Binding="{Binding dateAbsence}"/>
-                <DataGridCheckBoxColumn  Header="Status" Width="100" Binding="{Binding Justifier}"/>
-                <DataGridTemplateColumn Width="125" x:Name="action" Header="Action">
+                <DataGridTextColumn Header="Date" Width="200" Binding="{Binding dateAbsence}" IsReadOnly="True"/>
+                <DataGridCheckBoxColumn  Header="Status" Width="150" Binding="{Binding Justifier}"  IsReadOnly="True"/>
+                <DataGridTemplateColumn Width="150" x:Name="action" Header="Action" >
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate >
-                            <Button x:Name="send_jus" Content="Justifier" Width="100" Background="#FF1197F6" BorderBrush="{x:Null}" Foreground="White" Click="just_abs" />
+                            <Button x:Name="send_jus" Content="Justifier" Width="100" Background="#FF71B4FF" BorderBrush="{x:Null}" Foreground="White" Click="just_abs" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="name_etud" Content="Asmaa Rose" Background="{x:Null}" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Margin="195,243,688.6,387.4"/>
+        <Label x:Name="name_etud" Content="Asmaa Rose" Background="{x:Null}" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Margin="786,7,88,616" Height="47" Width="144"/>
+        <Image Margin="929,4,30,612" Source="unknown.png" Stretch="Fill"/>
 
-        <GroupBox Header="Feliere" FontSize="10" Margin="201,311,704.6,279.4" hc:TitleElement.TitlePlacement="Left" Background="White">
-            <Border CornerRadius="4" Margin="0,10,-22.8,3">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                        <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0"/>
-                        <GradientStop Color="{DynamicResource DarkPrimaryColor}" Offset="1"/>
-                        <GradientStop Color="#FF9DB6F0" Offset="0.997"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <TextBlock x:Name="feliere_name" Text="C#" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" Foreground="White"/>
-            </Border>
-        </GroupBox>
-        <GroupBox Header="Class" FontSize="10" Margin="201,405,688.6,186.4"   hc:TitleElement.TitlePlacement="Left"  Background="White">
-            <Border CornerRadius="4" Margin="0,0,-6.8,0.2">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                        <GradientStop Color="{DynamicResource PrimaryColor}" Offset="0"/>
-                        <GradientStop Color="{DynamicResource DarkPrimaryColor}" Offset="1"/>
-                        <GradientStop Color="#FF9DB6F0" Offset="0.997"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-                <TextBlock x:Name="class_etud" Text="Legend C#" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" Foreground="White"/>
-            </Border>
-        </GroupBox>
     </Grid>
 </Window>

@@ -14,23 +14,27 @@
 
         </Style>
     </Window.Resources>
-    <Grid HorizontalAlignment="Left" Height="670" VerticalAlignment="Top" Width="1014">
+    <Grid Background="#f9fbff" HorizontalAlignment="Left" Height="670" VerticalAlignment="Top" Width="1014">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="88*"/>
             <ColumnDefinition Width="419*"/>
         </Grid.ColumnDefinitions>
-        <hc:SideMenu BorderThickness="1" Margin="1,103,820,3" Grid.ColumnSpan="2">
+        <hc:SideMenu BorderThickness="1" Margin="1,67,0,3" BorderBrush="{x:Null}">
             <hc:Interaction.Triggers>
                 <hc:EventTrigger EventName="SelectionChanged">
                     <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
                 </hc:EventTrigger>
             </hc:Interaction.Triggers>
-            <hc:SideMenuItem Header="Dashboard" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
-
+            <hc:SideMenuItem Header="Dashboard" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14" Height="37" Margin="0,70,0,30">
+                <hc:SideMenuItem.Icon>
+                    <Image Source="home-icon-silhouette.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
 
             </hc:SideMenuItem>
-            <hc:SideMenuItem Header="Apprenants" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" FontSize="14" Foreground="#FF707070">
-
+            <hc:SideMenuItem Background="#ffffff" Header="Note" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" FontSize="14" Foreground="#FF707070" Margin="0,0,0,30">
+                <hc:SideMenuItem.Icon>
+                    <Image Source="notes.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
                 <hc:SideMenuItem Header="C#">
                     <hc:SideMenuItem.Icon>
                         <TextBlock Text="&#xf314;" />
@@ -67,23 +71,97 @@
                     </hc:SideMenuItem.Icon>
                 </hc:SideMenuItem>
             </hc:SideMenuItem>
-            <hc:SideMenuItem Header="Retards" Foreground="#FF707070" FontSize="14">
+            <hc:SideMenuItem Header="Contact" Foreground="#FF707070" FontSize="14" Margin="0,0,0,200">
 
-
-
-            </hc:SideMenuItem>
-            <hc:SideMenuItem Header="Absences" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
-
+                <hc:SideMenuItem.Icon>
+                    <Image Source="mail.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
 
             </hc:SideMenuItem>
-            <hc:SideMenuItem Header="Paramètres" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" FontSize="14" Foreground="#FF707070">
-
-
+            <hc:SideMenuItem Background="#ffffff" Header="Setting" Command="{Binding SelectCmd}" CommandParameter="{Binding Header, RelativeSource={RelativeSource Self}}" FontSize="12" Foreground="#FF707070" Height="43">
+                <hc:SideMenuItem.Icon>
+                    <Image Source="settings.png" Width="20" Height="20"/>
+                </hc:SideMenuItem.Icon>
+                <hc:SideMenuItem Header="C#">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF314;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="JEE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF444;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="FEBE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF6BF;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 1">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF3B0;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 2">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 3">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 4">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+            <hc:SideMenuItem Background="#ffffff" Header="Logout" Command="{Binding SelectCmd}" CommandParameter="{Binding Header, RelativeSource={RelativeSource Self}}" FontSize="12" Foreground="#FF707070"  >
+                <hc:SideMenuItem.Icon>
+                    <Image Source="logout.png" Width="20" Height="20"/>
+                </hc:SideMenuItem.Icon>
+                <hc:SideMenuItem Header="C#">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF314;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="JEE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF444;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="FEBE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF6BF;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 1">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF3B0;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 2">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 3">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 4">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
             </hc:SideMenuItem>
         </hc:SideMenu>
 
         <Menu HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1014" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1" Grid.ColumnSpan="2"/>
-        <Button Content="Search" HorizontalAlignment="Left" Margin="261.786,23,0,0" VerticalAlignment="Top" Width="70" Height="30" Background="#FF6672FB" Foreground="White" Click="Button_Click_1" BorderBrush="{x:Null}" Grid.Column="1">
+        <Button Content="Formateur" HorizontalAlignment="Left" Margin="728,25,0,0" VerticalAlignment="Top" Width="77" Height="30" Background="#0177fb" Foreground="White" Click="Button_Click_1" BorderBrush="{x:Null}" Grid.Column="1">
             <Button.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -91,30 +169,50 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox HorizontalAlignment="Left" Height="32" Margin="67.786,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" Grid.Column="1">
-            <TextBox.Resources>
-                <!--to make border corner round-->
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
+        <TextBox    x:Name="textboxSearch" HorizontalAlignment="Left" Height="32" Margin="67.786,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" Grid.Column="1" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Padding="15,0,0,0">
+            <TextBox.CacheMode>
+                <BitmapCache/>
+            </TextBox.CacheMode>
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="Search here....." Foreground="#FF6F6F6F" BorderBrush="White" Margin="0" Padding="10,13,5,10" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
                 </Style>
-            </TextBox.Resources>
-            <TextBox.Background>
-                <ImageBrush Stretch="Uniform"/>
-            </TextBox.Background>
+            </TextBox.Style>
+
+
         </TextBox>
         <!--<Image HorizontalAlignment="Left" Height="31" Margin="785.786,22,0,0" VerticalAlignment="Top" Width="29" Source="circle-cropped (4).png" Stretch="Fill" RenderTransformOrigin="0.681,0.533" Grid.Column="1"/>-->
-        <Rectangle Fill="#FFF8F8FB" HorizontalAlignment="Left" Height="125" Margin="37.786,67,0,0" VerticalAlignment="Top" Width="800" Panel.ZIndex="-2" Grid.Column="1"/>
-        <DataGrid AutoGenerateColumns="False" x:Name="dg" HorizontalAlignment="Left" Height="385" Margin="43,218,0,0" VerticalAlignment="Top" Width="795" CurrentCellChanged="dg_CurrentCellChanged" Grid.Column="1" SelectionChanged="dg_SelectionChanged_1">
+        <DataGrid Background="White" AutoGenerateColumns="False" x:Name="dg" HorizontalAlignment="Left" Height="427" Margin="68,170,0,0" VerticalAlignment="Top" Width="711" CurrentCellChanged="dg_CurrentCellChanged" Grid.Column="1" SelectionChanged="dg_SelectionChanged_1">
             <DataGrid.Columns>
 
-                <DataGridTextColumn  Header="" Width="125" Binding="{Binding StudentId}"/>
-                <DataGridTextColumn  Header="Full Name" Width="125" Binding="{Binding Fullname}"/>
-                <DataGridTextColumn  Header="Email" Width="125" Binding="{Binding Email}"/>
+                <DataGridTextColumn  Header="" Width="125" Binding="{Binding StudentId}" IsReadOnly="True"/>
+                <DataGridTextColumn  Header="Full Name" Width="125" Binding="{Binding Fullname}" IsReadOnly="True"/>
+                <DataGridTextColumn  Header="Email" Width="125" Binding="{Binding Email}" IsReadOnly="True"/>
 
                 <DataGridTemplateColumn Width="125" x:Name="abs_temp" Header="Absent">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox x:Name="abs_chk" Checked="abs_chk_Checked" Unchecked="abs_chk_Unchecked"  IsChecked="False" IsThreeState="True" />
+                            <CheckBox x:Name="abs_chk" Checked="abs_chk_Checked" Unchecked="abs_chk_Unchecked"  IsChecked="False" IsThreeState="True" Foreground="Red" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -135,7 +233,14 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="708.786,625,0,0" VerticalAlignment="Top" Width="106" Height="35" Background="#FF6672FB" Foreground="White" Click="Button_Click_1" BorderBrush="{x:Null}" Grid.Column="1">
+        <Rectangle  Fill="White" HorizontalAlignment="Left" Height="55" Margin="569,92,0,0" VerticalAlignment="Top" Width="70" Panel.ZIndex="-1" Grid.Column="1" Stroke="#FFEAECEF"/>
+        <Label BorderThickness="0" Content="Attendance" HorizontalAlignment="Left" Margin="569,92,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" Grid.Column="1" FontSize="9" Height="26" RenderTransformOrigin="0.603,0.615" Background="{x:Null}" BorderBrush="#FFC9CED6"/>
+        <Label BorderThickness="0" Content="Absent" HorizontalAlignment="Left" Margin="644,96,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" Grid.Column="1" FontSize="9"/>
+        <Label BorderThickness="0"  Content="Late" HorizontalAlignment="Left" Margin="728,96,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" RenderTransformOrigin="1.045,0.521" Grid.Column="1" FontSize="9" Background="{x:Null}" BorderBrush="#FFC9CED6"/>
+        <Rectangle HorizontalAlignment="Left" Height="55" Margin="639,92,0,0" VerticalAlignment="Top" Width="70" Panel.ZIndex="-1" Grid.Column="1" Stroke="#FFEAECEF" Fill="White"/>
+        <Rectangle  Fill="White" HorizontalAlignment="Left" Height="55" Margin="709,92,0,0" VerticalAlignment="Top" Width="70" Panel.ZIndex="-1" Grid.Column="1" Stroke="#FFEAECEF"/>
+        <Image HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="156" Source="cover.png" Stretch="Fill"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="697,616,0,0" VerticalAlignment="Top" Width="82" Height="31" Background="#0177fb" Foreground="White" Click="Button_Click_1" BorderBrush="{x:Null}" Grid.Column="1" RenderTransformOrigin="0.617,5.11">
             <Button.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -143,12 +248,10 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="82" Margin="536.786,88,0,0" VerticalAlignment="Top" Width="88" Panel.ZIndex="-1" Grid.Column="1"/>
-        <Label Content="Attendance" HorizontalAlignment="Left" Margin="536.786,102,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" Grid.Column="1"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="82" Margin="635.786,88,0,0" VerticalAlignment="Top" Width="83" Panel.ZIndex="-1" Grid.Column="1"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="82" Margin="736.786,88,0,0" VerticalAlignment="Top" Width="78" Panel.ZIndex="-1" Grid.Column="1"/>
-        <Label Content="Absent" HorizontalAlignment="Left" Margin="643.786,102,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" Grid.Column="1"/>
-        <Label Content="Late" HorizontalAlignment="Left" Margin="755.786,102,0,0" VerticalAlignment="Top" FontFamily="Rockwell" FontWeight="Bold" RenderTransformOrigin="1.045,0.521" Grid.Column="1"/>
+        <Label  x:Name="lab1" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="581,117,0,0" VerticalAlignment="Top" Width="47" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FF00C747" FontWeight="Bold"/>
+        <Label x:Name="lab2" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="650,117,0,0" VerticalAlignment="Top" Width="54" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" RenderTransformOrigin="0.271,0.623" Foreground="#FFE4EF00" FontWeight="Bold"/>
+        <Label x:Name="lab3" Content="" Grid.Column="1" HorizontalAlignment="Left" Margin="721,117,0,0" VerticalAlignment="Top" Width="46" Height="30" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="#FFE73A3D" FontWeight="Bold"/>
+        <Image HorizontalAlignment="Left" Height="603" Margin="5,67,0,0" VerticalAlignment="Top" Width="833" Panel.ZIndex="-3" Source="background.png" OpacityMask="Black" Opacity="0.1" Grid.Column="1"/>
 
     </Grid>
 </Window>
