@@ -18,6 +18,7 @@ using System.IO;
 
 namespace ThaLastOneAbsence
 {
+    //Data Source = DESKTOP - 122P6H8\SQLEXPRESS;Initial Catalog = lastDataAbs; Integrated Security = True
     /// <summary>
     /// Logique d'interaction pour Etudiant.xaml
     /// </summary>
@@ -37,20 +38,23 @@ namespace ThaLastOneAbsence
         public void getTotlaAbs(string a)
         {
             SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = @"Data Source=DESKTOP-OA38PF8;Initial Catalog=Attendance-Management;Integrated Security=True";
+            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
             String QuerySelect = "SELECT (SELECT COUNT(date) FROM   Absence WHERE  EtudiantId = " + a + " and valAbsence = 1) , (SELECT COUNT(date) FROM   Absence WHERE EtudiantId = " + a + " and valRetard = 1) ";
             SqlCommand cmd = new SqlCommand(QuerySelect, cnx);
             cnx.Open();
             SqlDataReader data = cmd.ExecuteReader();
             while (data.Read())
             {
-                Total_abs.Content = data[0] + " days";
+                int absDays = Convert.ToInt32(data[0]);
+                int absDemiDays = Convert.ToInt32(data[1]) /2 ;
+                int lastRes = absDays + absDemiDays;
+                Total_abs.Content = lastRes + " days";
             }
         }
         public void getTotlaAbsJus(string a)
         {
             SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = @"Data Source=DESKTOP-OA38PF8;Initial Catalog=Attendance-Management;Integrated Security=True";
+            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
             String QuerySelect = "SELECT COUNT(date) FROM Absence WHERE EtudiantId =  " + a + "and Justifier = 1";
             SqlCommand cmd = new SqlCommand(QuerySelect, cnx);
             cnx.Open();
@@ -63,7 +67,7 @@ namespace ThaLastOneAbsence
         public void getTotlaAbsNoJus(string a)
         {
             SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = @"Data Source=DESKTOP-OA38PF8;Initial Catalog=Attendance-Management;Integrated Security=True";
+            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
             String QuerySelect = "SELECT COUNT(date) FROM Absence WHERE EtudiantId = " + a + "and Justifier != 1";
             SqlCommand cmd = new SqlCommand(QuerySelect, cnx);
             cnx.Open();
@@ -77,7 +81,7 @@ namespace ThaLastOneAbsence
         public void getAllAbs(string a)
         {
             d.connecter();
-            d.cmd.CommandText = "SELECT * FROM Absence WHERE EtudiantId = " + a + " and valPresence !=1";
+            d.cmd.CommandText = "SELECT * FROM Absence WHERE EtudiantId = " + a + " and valPresence !=1 and Justifier IS NOT NULL";
             d.cmd.Connection = d.con;
             d.dr = d.cmd.ExecuteReader();
             d.dt.Load(d.dr);
@@ -88,7 +92,7 @@ namespace ThaLastOneAbsence
         public void GetInfoEtudiant(string a)
         {
             SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = @"Data Source=DESKTOP-OA38PF8;Initial Catalog=Attendance-Management;Integrated Security=True";
+            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
             String QuerySelect = "Select S.Fullname ,C.Classename , F.Fullname FROM Student as S , Formateur as F , Classe as C Where S.StudentId = " + a + " and S.FormateurId = F.FormateurId and F.ClassId = C.ClasseId";
             SqlCommand cmd = new SqlCommand(QuerySelect, cnx);
             cnx.Open();
@@ -103,7 +107,7 @@ namespace ThaLastOneAbsence
         }
         //int position = -1;
         string Justif = "";
-        /*var photo;*/
+        //var photo;
         int id_student;
         private void just_abs(object sender, RoutedEventArgs e)
         {
@@ -131,18 +135,18 @@ namespace ThaLastOneAbsence
             OpenFileDialog dialog = new OpenFileDialog();
             //dialog.Filter = "png files(*.png)|*.png|jpg files(*.jpg)|*.jpg|All filles";
 
-          /*  if (dialog.ShowDialog() == true)
+            if (dialog.ShowDialog() == true)
             {
-                Justif = dialog.FileName.ToString();
-                photo.Source = new BitmapImage(new Uri(dialog.FileName));
-                MessageBox.Show(photo);
-            }*/
+                //Justif = dialog.FileName.ToString();
+                //photo.Source = new BitmapImage(new Uri(dialog.FileName));
+                //MessageBox.Show(photo);
+            }
             byte[] images = null;
             FileStream Streem = new FileStream(Justif, FileMode.Open, FileAccess.Read);
             BinaryReader brs = new BinaryReader(Streem);
             images = brs.ReadBytes((int)Streem.Length);
             SqlConnection cnx = new SqlConnection();
-            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=lastDataAbs;Integrated Security=True";
+            cnx.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
             string SqlQuery = "insert Into Justife Values( @images , 'False', " + id_student + ")";
             SqlCommand cmd = new SqlCommand(SqlQuery, cnx);
             cnx.Open();
@@ -162,6 +166,11 @@ namespace ThaLastOneAbsence
             //SqlCommand cmd = new SqlCommand(SqlQuery, cnx);
             //cnx.Open();
             //SqlDataReader data = cmd.ExecuteReader();
+        }
+
+        private void deatail_abs_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
