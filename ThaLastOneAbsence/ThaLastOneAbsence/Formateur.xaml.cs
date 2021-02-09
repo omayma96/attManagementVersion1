@@ -157,7 +157,7 @@ namespace ThaLastOneAbsence
 
 
             c.connecter();
-            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId ) values ( '{Unvalue}','{value}','{Unvalue}','{date}','{id}') ";
+            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId, Justifier) values ( '{Unvalue}','{value}','{Unvalue}','{date}','{id}' , '{Unvalue}' ) ";
             c.cmd.Connection = c.con;
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -192,7 +192,7 @@ namespace ThaLastOneAbsence
 
 
             c.connecter();
-            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId ) values ( '{Unvalue}','{Unvalue}','{value}','{date}','{id}') ";
+            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId , Justifier ) values ( '{Unvalue}','{Unvalue}','{value}','{date}','{id}' , '{Unvalue}') ";
             c.cmd.Connection = c.con;
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -225,7 +225,7 @@ namespace ThaLastOneAbsence
 
 
             c.connecter();
-            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId ) values ( '{value}','{Unvalue}','{Unvalue}','{date}','{id}') ";
+            c.cmd.CommandText = $"INSERT INTO Absence (valAbsence,valPresence,valRetard,date,EtudiantId , Justifier ) values ( '{value}','{Unvalue}','{Unvalue}','{date}','{id}' , '{Unvalue}') ";
             c.cmd.Connection = c.con;
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
