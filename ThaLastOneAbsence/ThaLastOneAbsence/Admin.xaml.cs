@@ -72,8 +72,6 @@ namespace ThaLastOneAbsence
             butModifier.Visibility = Visibility.Visible;
             butEnregistetModefication.Visibility = Visibility.Hidden;
             AjouterSecretaire.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             ModifirerSecretaire.Visibility = Visibility.Hidden;
             EnregistrerModificationSecretaire.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
@@ -127,8 +125,6 @@ namespace ThaLastOneAbsence
             butVider.Visibility = Visibility.Visible;
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             SupprimerSecretaire.Visibility = Visibility.Hidden;
             butAjouter.Visibility = Visibility.Hidden;
 
@@ -153,7 +149,6 @@ namespace ThaLastOneAbsence
             txtAnnée.Clear();
             txtRoleld.Text = "";
             txtClasse.Text = "";
-            txtImage.Text = "";
             txFormateurId.Text = "";
             txtdateNaissance.Text = "";
         }
@@ -300,8 +295,6 @@ namespace ThaLastOneAbsence
             butVider.Visibility = Visibility.Hidden;
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
             butEnregistetModefication.Visibility = Visibility.Hidden;
@@ -345,8 +338,6 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Visible;
-            lblImage.Visibility = Visibility.Visible;
             EnregistrerSecretaire.Visibility = Visibility.Visible;
             butVider.Visibility = Visibility.Visible;
             SupprimerSecretaire.Visibility = Visibility.Hidden;
@@ -358,7 +349,7 @@ namespace ThaLastOneAbsence
         private void EnregistrerSecretaire_Click(object sender, RoutedEventArgs e)
         {
             d.connecter();
-            d.cmd = new SqlCommand(" insert into Secretaire  (Fullname,email,password,image,RoleId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "','" + txtImage.Text + "'," + txtRoleld.SelectedItem + ")", d.con);
+            d.cmd = new SqlCommand(" insert into Secretaire  (Fullname,email,password,RoleId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "'," + txtRoleld.SelectedItem + ")", d.con);
             d.cmd.Connection = d.con;
             d.cmd.ExecuteNonQuery();
             d.con.Close();
@@ -378,8 +369,6 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Visible;
-            lblImage.Visibility = Visibility.Visible;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
             AjouterSecretaire.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Visible;
@@ -398,7 +387,7 @@ namespace ThaLastOneAbsence
             var id = gow.Row[0].ToString();
 
             d.connecter();
-            d.cmd.CommandText = "update Secretaire set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',image ='" + txtImage.Text + "',RoleId =" + txtRoleld.SelectedItem + " WHERE SecretaireId = '" + id + "'";
+            d.cmd.CommandText = "update Secretaire set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',RoleId =" + txtRoleld.SelectedItem + " WHERE SecretaireId = '" + id + "'";
             d.cmd.Connection = d.con;
             d.dr = d.cmd.ExecuteReader();
             d.dmt.Load(d.dr);
@@ -443,8 +432,6 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             lblFormateurId.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
@@ -480,8 +467,6 @@ namespace ThaLastOneAbsence
             lblEmail.Visibility = Visibility.Visible;
             lblPassword.Visibility = Visibility.Visible;
             lblRoleId.Visibility = Visibility.Visible;
-            txtImage.Visibility = Visibility.Visible;
-            lblImage.Visibility = Visibility.Visible;
             txtdateNaissance.Visibility = Visibility.Visible;
             lbldateNaissance.Visibility = Visibility.Visible;
             txtClasse.Visibility = Visibility.Visible;
@@ -499,7 +484,7 @@ namespace ThaLastOneAbsence
         private void EnregistrerStudent_Click(object sender, RoutedEventArgs e)
         {
             d.connecter();
-            d.cmd = new SqlCommand(" insert into Student  (Fullname,email,password,dateNaissance,image,RoleId,FormateurId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "','" + txtdateNaissance.Text + "','" + txtImage.Text + "'," + txtRoleld.SelectedItem + "," + txFormateurId.SelectedItem + ")", d.con);
+            d.cmd = new SqlCommand(" insert into Student  (Fullname,email,password,dateNaissance,RoleId,FormateurId) values ('" + txtFullname.Text + "','" + txtEmail.Text + "','" + txtPassword.Text + "','" + txtdateNaissance.Text + "'," + txtRoleld.SelectedItem + "," + txFormateurId.SelectedItem + ")", d.con);
             d.cmd.Connection = d.con;
             d.cmd.ExecuteNonQuery();
             d.con.Close();
@@ -535,8 +520,6 @@ namespace ThaLastOneAbsence
             lblEmail.Visibility = Visibility.Visible;
             lblPassword.Visibility = Visibility.Visible;
             lblRoleId.Visibility = Visibility.Visible;
-            txtImage.Visibility = Visibility.Visible;
-            lblImage.Visibility = Visibility.Visible;
             txtdateNaissance.Visibility = Visibility.Visible;
             lbldateNaissance.Visibility = Visibility.Visible;
             txtClasse.Visibility = Visibility.Visible;
@@ -556,7 +539,7 @@ namespace ThaLastOneAbsence
             var id = gow.Row[0].ToString();
 
             d.connecter();
-            d.cmd.CommandText = "update Student set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',dateNaissance ='" + txtdateNaissance.Text + "',image ='" + txtImage.Text + "',RoleId =" + txtRoleld.SelectedItem + ",FormateurId =" + txFormateurId.SelectedItem + " WHERE StudentId = '" + id + "'";
+            d.cmd.CommandText = "update Student set Fullname ='" + txtFullname.Text + "',email ='" + txtEmail.Text + "',password ='" + txtPassword.Text + "',dateNaissance ='" + txtdateNaissance.Text + "',RoleId =" + txtRoleld.SelectedItem + ",FormateurId =" + txFormateurId.SelectedItem + " WHERE StudentId = '" + id + "'";
             d.cmd.Connection = d.con;
             d.dr = d.cmd.ExecuteReader();
             d.dat.Load(d.dr);
@@ -605,8 +588,6 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             lblFormateurId.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
@@ -654,8 +635,6 @@ namespace ThaLastOneAbsence
             butSupprimer.Visibility = Visibility.Hidden;
             butModifier.Visibility = Visibility.Hidden;
             butVider.Visibility = Visibility.Hidden;
-            txtImage.Visibility = Visibility.Hidden;
-            lblImage.Visibility = Visibility.Hidden;
             lblFormateurId.Visibility = Visibility.Hidden;
             txFormateurId.Visibility = Visibility.Hidden;
             EnregistrerSecretaire.Visibility = Visibility.Hidden;
@@ -685,10 +664,10 @@ namespace ThaLastOneAbsence
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            /*try
+            try
             {
                 var text = textboxSearch.Text.Trim().ToLower();
-                var row1 = c.dt.AsEnumerable()
+                var row1 = d.dt.AsEnumerable()
                                 .Where(row =>
                                      string.IsNullOrEmpty(text)
                                      ? true
@@ -696,12 +675,16 @@ namespace ThaLastOneAbsence
                                      true
                                      : row["Email"].ToString().ToLower().Contains(text)
                                          ).CopyToDataTable();
-                dg.ItemsSource = row1.DefaultView;
+                DataGrid.ItemsSource = row1.DefaultView;
+                DataGridApprennent.ItemsSource = row1.DefaultView;
+                DataGridApprennentJEE.ItemsSource = row1.DefaultView;
+                DataGridApprennentFEBE.ItemsSource = row1.DefaultView;
+                DataGridSecrétaire.ItemsSource = row1.DefaultView;
             }
             catch (Exception)
             {
 
-            }*/
+            }
         }
     }
 }
