@@ -91,3 +91,36 @@ C:\Users\Administrateur\Desktop\attManagementVersion1\ThaLastOneAbsence\ThaLastO
 C:\Users\Administrateur\Desktop\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.GenerateResource.cache
 C:\Users\Administrateur\Desktop\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.CoreCompileInputs.cache
 C:\Users\Administrateur\Desktop\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.CopyComplete
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\ThaLastOneAbsence.exe.config
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\ThaLastOneAbsence.exe
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\ThaLastOneAbsence.pdb
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\HandyControl.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\HandyControl.xml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\en\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\fa\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\fr\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\ko-KR\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\ru\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\bin\Debug\tr\HandyControl.resources.dll
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csprojAssemblyReference.cache
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Admin.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Etudiant.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Formateur.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\MainWindow.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Secretaire.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\App.g.cs
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence_MarkupCompile.cache
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence_MarkupCompile.lref
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\App.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Admin.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Etudiant.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Formateur.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\MainWindow.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\Secretaire.baml
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.g.resources
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.Properties.Resources.resources
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.GenerateResource.cache
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.CoreCompileInputs.cache
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.csproj.CopyComplete
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.exe
+C:\Users\Youcode\Desktop\Les briefs\attManagementVersion1\ThaLastOneAbsence\ThaLastOneAbsence\obj\Debug\ThaLastOneAbsence.pdb

@@ -105,7 +105,7 @@ namespace ThaLastOneAbsence
         public void Attendance()
         {
         }
-        int id;
+        /*int id;*/
         /* private void dg_SelectionChanged(object sender, SelectionChangedEventArgs e)
          {
              var row = dg.SelectedItem as DataRowView;
