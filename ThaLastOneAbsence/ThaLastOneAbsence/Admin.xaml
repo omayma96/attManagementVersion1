@@ -25,8 +25,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Image Margin="765,11,206,601" Source="unknown.png" Stretch="Fill"/>
-        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="808,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="139" BorderBrush="White"/>
+        <Image Margin="771,11,200,601" Source="unknown.png" Stretch="Fill"/>
+        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="830,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="117" BorderBrush="White"/>
         <Button x:Name="butSupprimer"  Content="Supprimer" HorizontalAlignment="Left" Margin="815,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butSupprimer_Click" Visibility="Hidden">
 
             <Button.Resources>
@@ -300,7 +300,7 @@
         </Button>
         <DataGrid x:Name="DataGridApprennentJEE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
         <DataGrid x:Name="DataGridApprennentFEBE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
-        <TextBox    x:Name="textboxSearch" HorizontalAlignment="Left" Height="32" Margin="267,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Padding="15,0,0,0">
+        <TextBox    x:Name="textboxSearch" HorizontalAlignment="Left" Height="32" Margin="271,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Padding="15,0,0,0">
             <TextBox.CacheMode>
                 <BitmapCache/>
             </TextBox.CacheMode>
@@ -333,7 +333,7 @@
 
         </TextBox>
         <Image HorizontalAlignment="Left" Height="608" Margin="202,63,0,-0.6" VerticalAlignment="Top" Width="822" Panel.ZIndex="-3" Source="background.png" OpacityMask="Black" Opacity="0.1" Grid.RowSpan="2"/>
-        
+
 
 
 
