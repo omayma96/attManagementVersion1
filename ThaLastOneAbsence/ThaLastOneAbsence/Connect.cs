@@ -22,7 +22,7 @@ namespace ThaLastOneAbsence
         {
             if (con.State == ConnectionState.Closed || con.State == ConnectionState.Broken)
             {
-                con.ConnectionString = "Data Source=DESKTOP-OA38PF8;Initial Catalog=Attendance-Management;Integrated Security=True";
+                con.ConnectionString = @"Data Source=DESKTOP-122P6H8\SQLEXPRESS;Initial Catalog=AttManagement;Integrated Security=True";
                 con.Open();
             }
         }

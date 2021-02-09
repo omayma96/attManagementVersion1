@@ -8,47 +8,21 @@
         mc:Ignorable="d"
         Title="Etudiant" Height="700" Width="1024">
     <Grid Background="#FFF9FBFF" Margin="-2,0,1.6,0.4">
-        <Menu HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1014" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1" Grid.ColumnSpan="2">
-            <Image Height="67" Source="cover.png" Width="157"/>
-        </Menu>
-        <hc:SideMenu BorderThickness="1" Margin="1,66,820,3">
-            <hc:Interaction.Triggers>
-                <hc:EventTrigger EventName="SelectionChanged">
-                    <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
-                </hc:EventTrigger>
-            </hc:Interaction.Triggers>
-            <hc:SideMenuItem Header="Dashboard" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="493,98,0,0" VerticalAlignment="Top" Width="186" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
+        <Label Content="Justifier" HorizontalAlignment="Left" Height="43" Margin="503,99,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
+        <Label x:Name="Total_jus" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="542,140,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#00c747"/>
 
-
-            </hc:SideMenuItem>
-
-
-            <hc:SideMenuItem Header="Justification" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
-
-
-            </hc:SideMenuItem>
-            <hc:SideMenuItem Header="Logout" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" FontSize="14" Foreground="#FF707070">
-
-
-            </hc:SideMenuItem>
-           
-            <Button Content="Button" Height="100" Width="75" Background="red"/>
-        </hc:SideMenu>
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="519,98,0,0" VerticalAlignment="Top" Width="186" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
-        <Label Content="Justifier" HorizontalAlignment="Left" Height="43" Margin="529,99,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
-        <Label x:Name="Total_jus" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="568,140,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#00c747"/>
-
-        <Rectangle HorizontalAlignment="Left" Height="100" Margin="257,99,0,0" VerticalAlignment="Top" Width="187" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
-        <Label Content="Total" HorizontalAlignment="Left" Height="43" Margin="248,98,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
-        <Label x:Name="Total_abs" Content="" HorizontalAlignment="Left" Height="44" Margin="316,138,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#e4ef00"/>
+        <Rectangle HorizontalAlignment="Left" Height="100" Margin="225,99,0,0" VerticalAlignment="Top" Width="187" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
+        <Label Content="Total" HorizontalAlignment="Left" Height="43" Margin="216,98,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
+        <Label x:Name="Total_abs" Content="" HorizontalAlignment="Left" Height="44" Margin="284,138,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#e4ef00"/>
 
         <Rectangle HorizontalAlignment="Left" Height="100" Margin="763,98,0,0" VerticalAlignment="Top" Width="187" Fill="White" RadiusX="5" RadiusY="5" Stroke="#FF72B2FA"/>
         <Label Content="No Justifier" HorizontalAlignment="Left" Height="43" Margin="769,99,0,0" VerticalAlignment="Top" Width="109" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="16" Cursor="None" FontWeight="Bold"/>
         <Label x:Name="Total_noJust" Content="3 days" HorizontalAlignment="Left" Height="43" Margin="824,140,0,0" VerticalAlignment="Top" Width="84" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="20" Cursor="None" FontWeight="Bold" Foreground="#e73a3d"/>
 
-        <DataGrid AutoGenerateColumns="False" x:Name="deatail_abs" HeadersVisibility="All" RowHeaderWidth="60"  HorizontalAlignment="Left" Height="287" Margin="258,220,0,0" VerticalAlignment="Top" Width="698"  Background="white" Foreground="White" FontSize="14" HorizontalGridLinesBrush="White" >
+        <DataGrid AutoGenerateColumns="False" x:Name="deatail_abs" HeadersVisibility="All" RowHeaderWidth="60"  HorizontalAlignment="Left" Height="311" Margin="228,220,0,0" VerticalAlignment="Top" Width="728"  Background="white" Foreground="White" FontSize="14" HorizontalGridLinesBrush="White" SelectionChanged="deatail_abs_SelectionChanged" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Date" Width="200" Binding="{Binding dateAbsence}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Date" Width="200" Binding="{Binding date}" IsReadOnly="True"/>
                 <DataGridCheckBoxColumn  Header="Status" Width="150" Binding="{Binding Justifier}"  IsReadOnly="True"/>
                 <DataGridTemplateColumn Width="150" x:Name="action" Header="Action" >
                     <DataGridTemplateColumn.CellTemplate>
@@ -60,8 +34,112 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label x:Name="name_etud" Content="Asmaa Rose" Background="{x:Null}" FontSize="20" FontWeight="Bold" BorderBrush="{x:Null}" Margin="786,7,88,616" Height="47" Width="144"/>
+        <Label x:Name="name_etud" Content="Asmaa Rose" Background="{x:Null}" FontSize="12" FontWeight="Bold" BorderBrush="{x:Null}" Margin="790,8,84,615" Height="47" Width="144"/>
         <Image Margin="929,4,30,612" Source="unknown.png" Stretch="Fill"/>
+        <hc:SideMenu BorderThickness="1" Margin="1,67,842,2.6" BorderBrush="{x:Null}">
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="SelectionChanged">
+                    <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
+            <hc:SideMenuItem Header="Dashboard" Command="{Binding SelectCmd}" CommandParameter="{Binding Header, RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14" Height="37" Margin="0,70,0,30">
+                <hc:SideMenuItem.Icon>
+                    <Image Source="home-icon-silhouette.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
+
+            </hc:SideMenuItem>
+            <hc:SideMenuItem Header="Contact" Foreground="#FF707070" FontSize="14" Margin="0,0,0,300">
+
+                <hc:SideMenuItem.Icon>
+                    <Image Source="mail.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
+
+            </hc:SideMenuItem>
+            <hc:SideMenuItem Background="#ffffff" Header="Setting" Command="{Binding SelectCmd}" CommandParameter="{Binding Header, RelativeSource={RelativeSource Self}}" FontSize="12" Foreground="#FF707070" Height="43">
+                <hc:SideMenuItem.Icon>
+                    <Image Source="settings.png" Width="20" Height="20"/>
+                </hc:SideMenuItem.Icon>
+                <hc:SideMenuItem Header="C#">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF314;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="JEE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF444;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="FEBE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF6BF;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 1">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF3B0;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 2">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 3">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 4">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+            <hc:SideMenuItem Background="#ffffff" Header="Logout" Command="{Binding SelectCmd}" CommandParameter="{Binding Header, RelativeSource={RelativeSource Self}}" FontSize="12" Foreground="#FF707070"  >
+                <hc:SideMenuItem.Icon>
+                    <Image Source="logout.png" Width="20" Height="20"/>
+                </hc:SideMenuItem.Icon>
+                <hc:SideMenuItem Header="C#">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF314;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="JEE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF444;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="FEBE">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF6BF;"/>
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 1">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF3B0;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 2">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 3">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+                <hc:SideMenuItem Header="Classe 4">
+                    <hc:SideMenuItem.Icon>
+                        <TextBlock Text="&#xF2B8;" />
+                    </hc:SideMenuItem.Icon>
+                </hc:SideMenuItem>
+            </hc:SideMenuItem>
+        </hc:SideMenu>
+        <Image HorizontalAlignment="Left" Height="603" Margin="181,67,0,0" VerticalAlignment="Top" Width="833" Panel.ZIndex="-3" Source="background.png" OpacityMask="Black" Opacity="0.1"/>
+        <Menu HorizontalAlignment="Left" Height="67" VerticalAlignment="Top" Width="1014" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1">
+            <Image HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="156" Source="cover.png" Stretch="Fill"/>
+        </Menu>
 
     </Grid>
 </Window>
