@@ -32,6 +32,7 @@ namespace ThaLastOneAbsence
         }
        Connect d = new Connect();
 
+        // ****************************************************** Formateur ********************************************************************
 
         private void butFormateur_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
@@ -675,6 +676,32 @@ namespace ThaLastOneAbsence
             d.dat.Load(d.dr);
             DataGridApprennentFEBE.ItemsSource = d.dat.DefaultView;
 
+        }
+
+        private void Search_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            /*try
+            {
+                var text = textboxSearch.Text.Trim().ToLower();
+                var row1 = c.dt.AsEnumerable()
+                                .Where(row =>
+                                     string.IsNullOrEmpty(text)
+                                     ? true
+                                     : row["Fullname"].ToString().ToLower().Contains(text) ?
+                                     true
+                                     : row["Email"].ToString().ToLower().Contains(text)
+                                         ).CopyToDataTable();
+                dg.ItemsSource = row1.DefaultView;
+            }
+            catch (Exception)
+            {
+
+            }*/
         }
     }
 }

@@ -13,19 +13,9 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
-        <Menu HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1022" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1" Margin="2,-6,0,0"/>
+        <Menu HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1022" Panel.ZIndex="-1" Background="White" BorderBrush="#FFE0E0E0" BorderThickness="1" Margin="2,-6,0,0"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="605" Margin="0,63,0,0" Stroke="#FFE0E0E0" VerticalAlignment="Top" Width="202" Grid.RowSpan="2"/>
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660"  Loaded="loadData"  Visibility="Hidden"/>
-        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="32" Margin="244,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB">
-            <TextBox.Resources>
-                <!--to make border corner round-->
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </TextBox.Resources>
-            <TextBox.Background>
-                <ImageBrush Stretch="Uniform"/>
-            </TextBox.Background>
-        </TextBox>
         <Button x:Name="butAjouter"  Content="Ajouter" HorizontalAlignment="Left" Margin="535,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butAjouter_Click" Visibility="Hidden" >
 
             <Button.Resources>
@@ -35,9 +25,8 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Image Margin="739,7,232,598" Source="unknown.png" Stretch="Fill"/>
-        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="808,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="94"/>
-        <Image Margin="906,20,80,602" Source="icon.png" Stretch="Fill" RenderTransformOrigin="0.509,1.041"/>
+        <Image Margin="765,11,206,601" Source="unknown.png" Stretch="Fill"/>
+        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="808,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="139" BorderBrush="White"/>
         <Button x:Name="butSupprimer"  Content="Supprimer" HorizontalAlignment="Left" Margin="815,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butSupprimer_Click" Visibility="Hidden">
 
             <Button.Resources>
@@ -48,15 +37,6 @@
             </Button.Resources>
         </Button>
         <Button x:Name="butModifier"  Content="Modifier" HorizontalAlignment="Left" Margin="675,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butModifier_Click" Visibility="Hidden">
-
-            <Button.Resources>
-                <!--to make border corner round-->
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="10"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="Search"  Content="Search" HorizontalAlignment="Left" Margin="437,20,0,0" VerticalAlignment="Top" Width="105" Height="32" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}">
 
             <Button.Resources>
                 <!--to make border corner round-->
@@ -143,7 +123,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <hc:SideMenu BorderThickness="1" Margin="-1,63,822,4">
+        <hc:SideMenu BorderThickness="1" Margin="-1,173,827,10" BorderBrush="White">
             <hc:Interaction.Triggers>
                 <hc:EventTrigger EventName="SelectionChanged">
                     <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
@@ -202,6 +182,13 @@
                 </hc:SideMenuItem.Icon>
 
             </hc:SideMenuItem>
+            <hc:SideMenuItem x:Name="butLogut"  Header="Paramètres" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
+                <hc:SideMenuItem.Icon>
+                    <Image Source= "logout.png" Width="24" Height="24"/>
+                </hc:SideMenuItem.Icon>
+
+            </hc:SideMenuItem>
+
         </hc:SideMenu>
         <DataGrid x:Name="DataGridSecrétaire" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden"/>
 
@@ -313,6 +300,42 @@
         </Button>
         <DataGrid x:Name="DataGridApprennentJEE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
         <DataGrid x:Name="DataGridApprennentFEBE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
+        <TextBox    x:Name="textboxSearch" HorizontalAlignment="Left" Height="32" Margin="267,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Padding="15,0,0,0">
+            <TextBox.CacheMode>
+                <BitmapCache/>
+            </TextBox.CacheMode>
+            <TextBox.Style>
+                <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="Search here....." Foreground="#FF6F6F6F" BorderBrush="White" Margin="0" Padding="10,13,5,10" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+
+
+        </TextBox>
+        <Image HorizontalAlignment="Left" Height="608" Margin="202,63,0,-0.6" VerticalAlignment="Top" Width="822" Panel.ZIndex="-3" Source="background.png" OpacityMask="Black" Opacity="0.1" Grid.RowSpan="2"/>
+        
+
+
 
     </Grid>
 </Window>
