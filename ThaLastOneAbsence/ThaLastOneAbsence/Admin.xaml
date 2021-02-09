@@ -13,9 +13,19 @@
             <RowDefinition Height="7*"/>
         </Grid.RowDefinitions>
 
-        <Menu HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1022" Panel.ZIndex="-1" Background="White" BorderBrush="#FFE0E0E0" BorderThickness="1" Margin="2,-6,0,0"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="605" Margin="0,63,0,0" Stroke="#FFE0E0E0" VerticalAlignment="Top" Width="202" Grid.RowSpan="2"/>
+        <Menu HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="1022" Panel.ZIndex="-1" Background="White" BorderBrush="#FFF8F8FB" BorderThickness="1" Margin="2,-6,0,0"/>
         <DataGrid x:Name="DataGrid"  HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660"  Loaded="loadData"  Visibility="Hidden"/>
+        <TextBox x:Name="txtSearch" HorizontalAlignment="Left" Height="32" Margin="244,19,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB">
+            <TextBox.Resources>
+                <!--to make border corner round-->
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+            <TextBox.Background>
+                <ImageBrush Stretch="Uniform"/>
+            </TextBox.Background>
+        </TextBox>
         <Button x:Name="butAjouter"  Content="Ajouter" HorizontalAlignment="Left" Margin="535,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butAjouter_Click" Visibility="Hidden" >
 
             <Button.Resources>
@@ -25,8 +35,9 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Image Margin="771,11,200,601" Source="unknown.png" Stretch="Fill"/>
-        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="830,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="117" BorderBrush="White"/>
+        <Image Margin="739,7,232,598" Source="unknown.png" Stretch="Fill"/>
+        <Label x:Name="Nom_Admin" Content="Nom Admin " HorizontalAlignment="Left" Margin="808,20,0,0" VerticalAlignment="Top" Foreground="#FF0A4B6D" FontWeight="Bold" FontSize="14" Height="29" Width="94"/>
+        <Image Margin="906,20,80,602" Source="icon.png" Stretch="Fill" RenderTransformOrigin="0.509,1.041"/>
         <Button x:Name="butSupprimer"  Content="Supprimer" HorizontalAlignment="Left" Margin="815,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="butSupprimer_Click" Visibility="Hidden">
 
             <Button.Resources>
@@ -45,7 +56,16 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <TextBox x:Name="txtFullname" HorizontalAlignment="Left" Height="32" Margin="418,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FF525254" Foreground="#FF525254" CaretBrush="#FF525254" Visibility="Hidden"  >
+        <Button x:Name="Search"  Content="Search" HorizontalAlignment="Left" Margin="437,20,0,0" VerticalAlignment="Top" Width="105" Height="32" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}">
+
+            <Button.Resources>
+                <!--to make border corner round-->
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBox x:Name="txtFullname" HorizontalAlignment="Left" Height="32" Margin="399,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" Foreground="#FF707070" Visibility="Hidden"  >
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -56,21 +76,12 @@
                 <ImageBrush Stretch="Uniform"/>
             </TextBox.Background>
         </TextBox>
-        <Label x:Name="lblFullname" Content="Fullname" HorizontalAlignment="Left" Margin="230,232,0,0" VerticalAlignment="Top" Height="40" Width="133" FontSize="18" Foreground="#FF707070" FontWeight="Bold" RenderTransformOrigin="0.485,0.469" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left"  Visibility="Hidden" />
-        <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Margin="228,289,0,0" VerticalAlignment="Top" Height="37" Width="130" FontSize="18" Foreground="#FF707070" FontWeight="Bold" RenderTransformOrigin="0.495,0.354" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" >
-            <Label.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="-0.808"/>
-                    <TranslateTransform X="-0.071" Y="0.009"/>
-                </TransformGroup>
-            </Label.RenderTransform>
-        </Label>
-        <Label x:Name="lblPassword" Content="Password" HorizontalAlignment="Left" Margin="231,339,0,0" VerticalAlignment="Top" Height="39" Width="127" Foreground="#FF707070" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" FontSize="18" HorizontalContentAlignment="Left" Visibility="Hidden"/>
-        <Label x:Name="lblRoleId" Content="RoleId" HorizontalAlignment="Left" Margin="230,164,0,0" VerticalAlignment="Top" Height="42" Width="123" FontSize="18" Foreground="#FF707070" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" />
-        <Label x:Name="lblClasse" Content="Classe" HorizontalAlignment="Left" Margin="628,163,0,0" VerticalAlignment="Top" Height="35" Width="133" Foreground="#FF707070" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" />
-        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="32" Margin="418,283,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" CaretBrush="#FF525254" BorderBrush="#FF525254"  Visibility="Hidden" >
+        <Label x:Name="lblFullname" Content="Fullname" HorizontalAlignment="Left" Margin="256,237,0,0" VerticalAlignment="Top" Height="45" Width="133" FontSize="16" Foreground="#FF707070" FontWeight="Bold" RenderTransformOrigin="0.485,0.469" Visibility="Hidden"  />
+        <Label x:Name="lblEmail" Content="Email" HorizontalAlignment="Left" Margin="257,293,0,0" VerticalAlignment="Top" Height="35" Width="139" FontSize="16" Foreground="#FF707070" FontWeight="Bold" Visibility="Hidden"  />
+        <Label x:Name="lblPassword" Content="Password" HorizontalAlignment="Left" Margin="257,349,0,0" VerticalAlignment="Top" Height="48" Width="133" FontSize="16" Foreground="#FF707070" FontWeight="Bold" Visibility="Hidden" />
+        <Label x:Name="lblRoleId" Content="RoleId" HorizontalAlignment="Left" Margin="256,182,0,0" VerticalAlignment="Top" Height="43" Width="123" FontSize="16" Foreground="#FF707070" FontWeight="Bold" Visibility="Hidden"  />
+        <Label x:Name="lblClasse" Content="Classe" HorizontalAlignment="Left" Margin="628,288,0,0" VerticalAlignment="Top" Height="35" Width="133" Foreground="#FF707070" FontSize="16" FontWeight="Bold" Visibility="Hidden"  />
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Height="32" Margin="399,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" Visibility="Hidden"  >
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -78,7 +89,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="32" Margin="418,341,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" BorderBrush="#FF525254" Visibility="Hidden" >
+        <TextBox x:Name="txtPassword" HorizontalAlignment="Left" Height="32" Margin="399,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" Visibility="Hidden" >
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -88,7 +99,7 @@
         </TextBox>
         <Label x:Name="lblFourmateur" Content="Fourmateur" HorizontalAlignment="Left" Margin="628,350,0,0" VerticalAlignment="Top" Height="34" Width="133" Foreground="#FF707070" FontSize="16" FontWeight="Bold" Visibility="Hidden" />
         <TextBox HorizontalAlignment="Left" Height="0" Margin="132,556,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="0"/>
-        <TextBox x:Name="txtFormateur" HorizontalAlignment="Left" Height="32" Margin="775,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" Background="{x:Null}" Foreground="#FF707070" BorderBrush="#FF525254" Visibility="Hidden"  >
+        <TextBox x:Name="txtFormateur" HorizontalAlignment="Left" Height="32" Margin="764,347,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" Visibility="Hidden" >
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -97,8 +108,8 @@
             </TextBox.Resources>
         </TextBox>
 
-        <ComboBox x:Name="txtRoleld" HorizontalAlignment="Left" Margin="418,167,0,0" VerticalAlignment="Top" Width="188" Height="30" BorderBrush="#FF525254" Background="#FFF3F3F3" Visibility="Hidden" />
-        <TextBox x:Name="txtAnnée"  HorizontalAlignment="Left" Height="33" Margin="772,223,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" BorderBrush="#FF525254"  Visibility="Hidden">
+        <ComboBox x:Name="txtRoleld" HorizontalAlignment="Left" Margin="399,182,0,0" VerticalAlignment="Top" Width="188" Height="30" BorderBrush="#FF9C8CDA" Visibility="Hidden" />
+        <TextBox x:Name="txtAnnée"  HorizontalAlignment="Left" Height="33" Margin="764,227,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Visibility="Hidden" >
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -106,7 +117,7 @@
                 </Style>
             </TextBox.Resources>
         </TextBox>
-        <Label x:Name="lblAnnée" Content="Année" HorizontalAlignment="Left" Height="35" Margin="630,223,0,0" VerticalAlignment="Top" Width="129" FontWeight="Bold" FontSize="18" Foreground="#FF707070" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" />
+        <Label x:Name="lblAnnée" Content="Année" HorizontalAlignment="Left" Height="50" Margin="628,227,0,0" VerticalAlignment="Top" Width="92" FontWeight="Bold" FontSize="18" Foreground="#FF707070" Visibility="Hidden" />
         <Button x:Name="butEnregister" Content="Enregister" HorizontalAlignment="Left" Margin="259,599,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" Foreground="#FF174A84" Background="{x:Null}" FontSize="16" Click="butEnregister_Click" Visibility="Hidden" >
             <Button.Resources>
                 <!--to make border corner round-->
@@ -123,7 +134,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <ComboBox x:Name="txtClasse"  HorizontalAlignment="Left" Margin="773,160,0,0" VerticalAlignment="Top" Width="188" Height="34" Background="#FFF3F3F3" BorderBrush="#FF525254" Visibility="Hidden"/>
+        <ComboBox x:Name="txtClasse"  HorizontalAlignment="Left" Margin="765,285,0,0" VerticalAlignment="Top" Width="182" Height="34" Visibility="Hidden"/>
         <Button x:Name="butEnregistetModefication" Content="Enregister" HorizontalAlignment="Left" Margin="535,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" Foreground="#FF174A84" Background="{x:Null}" FontSize="16" Click="butEnregistetModefication_Click" Visibility="Hidden">
             <Button.Resources>
                 <!--to make border corner round-->
@@ -132,7 +143,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <hc:SideMenu BorderThickness="1" Margin="-1,173,827,10" BorderBrush="White">
+        <hc:SideMenu BorderThickness="1" Margin="-1,63,822,4">
             <hc:Interaction.Triggers>
                 <hc:EventTrigger EventName="SelectionChanged">
                     <hc:EventToCommand Command="{Binding SwitchItemCmd}" PassEventArgsToCommand="True" />
@@ -191,13 +202,6 @@
                 </hc:SideMenuItem.Icon>
 
             </hc:SideMenuItem>
-            <hc:SideMenuItem x:Name="butLogut"  Header="Paramètres" Command="{Binding SelectCmd}" CommandParameter="{Binding Header,RelativeSource={RelativeSource Self}}" Foreground="#FF707070" FontSize="14">
-                <hc:SideMenuItem.Icon>
-                    <Image Source= "logout.png" Width="24" Height="24"/>
-                </hc:SideMenuItem.Icon>
-
-            </hc:SideMenuItem>
-
         </hc:SideMenu>
         <DataGrid x:Name="DataGridSecrétaire" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden"/>
 
@@ -217,6 +221,15 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Label x:Name="lblImage"  Content="Image" HorizontalAlignment="Left" Margin="257,401,0,0" VerticalAlignment="Top" Height="48" Width="133" FontSize="16" Foreground="#FF707070" FontWeight="Bold" Visibility="Hidden" />
+        <TextBox x:Name="txtImage"  HorizontalAlignment="Left" Height="32" Margin="399,402,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}" Foreground="#FF707070" Visibility="Hidden">
+            <TextBox.Resources>
+                <!--to make border corner round-->
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
         <Button x:Name="ModifirerSecretaire"  Content="Modifier" HorizontalAlignment="Left" Margin="675,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="ModifirerSecretaire_Click" Visibility="Hidden" >
 
             <Button.Resources>
@@ -245,8 +258,8 @@
         </Button>
         <Image Margin="21,-4,854,596" Source="cover.png" Stretch="Fill"/>
         <DataGrid x:Name="DataGridApprennent" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
-        <Label x:Name="lbldateNaissance"   Content="Date de naissance" HorizontalAlignment="Left" Margin="228,407,0,0" VerticalAlignment="Top" Height="42" Width="180" FontSize="18" Foreground="#FF707070" FontWeight="Bold" BorderBrush="{x:Null}" Background="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" />
-        <TextBox x:Name="txtdateNaissance"   HorizontalAlignment="Left" Height="32" Margin="418,412,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}"  Foreground="#FF707070" BorderBrush="#FF525254" Visibility="Hidden">
+        <Label x:Name="lbldateNaissance"   Content="dateNaissance" HorizontalAlignment="Left" Margin="251,453,0,0" VerticalAlignment="Top" Height="35" Width="133" FontSize="16" Foreground="#FF707070" FontWeight="Bold" Visibility="Hidden" />
+        <TextBox x:Name="txtdateNaissance"   HorizontalAlignment="Left" Height="32" Margin="399,456,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" Background="{x:Null}"  Foreground="#FF707070" Visibility="Hidden">
             <TextBox.Resources>
                 <!--to make border corner round-->
                 <Style TargetType="{x:Type Border}">
@@ -270,9 +283,9 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label x:Name="lblFormateurId" Content="Formateur" HorizontalAlignment="Left" Margin="630,282,0,0" VerticalAlignment="Top" Height="35" Width="133" Foreground="#FF707070" FontSize="18" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalContentAlignment="Left" Visibility="Hidden" />
+        <Label x:Name="lblFormateurId" Content="Formateur" HorizontalAlignment="Left" Margin="628,334,0,0" VerticalAlignment="Top" Height="35" Width="133" Foreground="#FF707070" FontSize="16" FontWeight="Bold" Visibility="Hidden"  />
         <ComboBox x:Name="txFormateurId"  HorizontalAlignment="Left" Margin="765,331,0,0" VerticalAlignment="Top" Width="182" Height="34" Visibility="Hidden"  />
-        <Button x:Name="ModifirerStudent"  Content="Modifier" HorizontalAlignment="Left" Margin="675,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="ModifirerStudent_Click" >
+        <Button x:Name="ModifirerStudent"  Content="Modifier" HorizontalAlignment="Left" Margin="675,601,0,0" VerticalAlignment="Top" Width="132" Height="37" BorderBrush="#FF174A84" FontFamily="Segoe UI" FontSize="16" Foreground="#FF174A84" RenderTransformOrigin="0.595,-0.023" Background="{x:Null}" Click="ModifirerStudent_Click" Visibility="Hidden" >
 
             <Button.Resources>
                 <!--to make border corner round-->
@@ -300,42 +313,6 @@
         </Button>
         <DataGrid x:Name="DataGridApprennentJEE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
         <DataGrid x:Name="DataGridApprennentFEBE" HorizontalAlignment="Left" Height="389" Margin="286,167,0,0" VerticalAlignment="Top" Width="660" Visibility="Hidden" Loaded="loadeDataGridApprennent"/>
-        <TextBox    x:Name="textboxSearch" HorizontalAlignment="Left" Height="32" Margin="271,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" TextOptions.TextHintingMode="Fixed" BorderBrush="#FFBFBFCB" TextChanged="TextBox_TextChanged" VerticalContentAlignment="Center" Padding="15,0,0,0">
-            <TextBox.CacheMode>
-                <BitmapCache/>
-            </TextBox.CacheMode>
-            <TextBox.Style>
-                <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
-                    <Style.Resources>
-                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
-                            <VisualBrush.Visual>
-                                <Label Content="Search here....." Foreground="#FF6F6F6F" BorderBrush="White" Margin="0" Padding="10,13,5,10" />
-                            </VisualBrush.Visual>
-                        </VisualBrush>
-                        <Style TargetType="{x:Type Border}">
-                            <Setter Property="CornerRadius" Value="10"/>
-                        </Style>
-                    </Style.Resources>
-                    <Style.Triggers>
-                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="Text" Value="{x:Null}">
-                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
-                        </Trigger>
-                        <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="Background" Value="White" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </TextBox.Style>
-
-
-        </TextBox>
-        <Image HorizontalAlignment="Left" Height="608" Margin="202,60,0,0" VerticalAlignment="Top" Width="822" Panel.ZIndex="-3" Source="background.png" OpacityMask="#FF7F7C7C" Opacity="0.1" Grid.RowSpan="2"/>
-
-
-
 
     </Grid>
 </Window>

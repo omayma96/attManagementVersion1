@@ -250,7 +250,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_RE.Visibility = Visibility.Visible;
-            c.cmd.CommandText = " SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valRetard = 1 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = " SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valRetard = 1 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -307,7 +307,7 @@ namespace ThaLastOneAbsence
 
 
 
-            c.cmd.CommandText = " SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 1 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE) ";
+            c.cmd.CommandText = " SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 1 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE) ";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -356,7 +356,7 @@ namespace ThaLastOneAbsence
 
             dg_JEE.Visibility = Visibility.Visible;
 
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 2 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 2 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -404,7 +404,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_FEBE.Visibility = Visibility.Visible;
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 3 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 3 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -451,7 +451,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_Classe1.Visibility = Visibility.Visible;
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 4 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 4 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -498,7 +498,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_Classe2.Visibility = Visibility.Visible;
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 5 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 5 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -545,7 +545,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_Classe3.Visibility = Visibility.Visible;
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 6 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 6 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -591,7 +591,7 @@ namespace ThaLastOneAbsence
             rec_V.Visibility = Visibility.Hidden;
 
             dg_Classe4.Visibility = Visibility.Visible;
-            c.cmd.CommandText = "SELECT Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 7 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
+            c.cmd.CommandText = "SELECT Student.StudentId, Student.Fullname As Nom , Student.image, Classe.Classename As Classe from Student LEFT JOIN Classe ON Classe.ClasseId = Student.ClasseId  LEFT JOIN Absence ON Student.StudentId = Absence.EtudiantId where Absence.valAbsence = 1 AND Classe.ClasseId = 7 AND CAST(Absence.dateAbsence AS DATE) = CAST(GETDATE() AS DATE)";
 
             c.dr = c.cmd.ExecuteReader();
             c.dt.Load(c.dr);
@@ -707,5 +707,25 @@ namespace ThaLastOneAbsence
 
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                var text = textboxSearch.Text.Trim().ToLower();
+                var row1 = c.dt.AsEnumerable()
+                                .Where(row =>
+                                     string.IsNullOrEmpty(text)
+                                     ? true
+                                     : row["Fullname"].ToString().ToLower().Contains(text) ?
+                                     true
+                                     : row["Email"].ToString().ToLower().Contains(text)
+                                         ).CopyToDataTable();
+                dg.ItemsSource = row1.DefaultView;
+            }
+            catch (Exception)
+            {
+
+            }
+        }
     }
 }
